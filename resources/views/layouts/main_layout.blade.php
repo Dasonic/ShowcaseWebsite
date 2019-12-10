@@ -44,8 +44,8 @@
 						Profile
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Sign up</a>
-						<a class="dropdown-item" href="#">Log-in</a>
+						<a class="dropdown-item" href="/register">Sign up</a>
+						<a class="dropdown-item" href="/login">Log-in</a>
 					<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Something else here</a>
 					</div>
@@ -56,7 +56,7 @@
 		{{-- Main Content --}}
 		<div class="row mt-4">
 			<div class="col-1"></div>
-			<div class="card col-7">
+			<div class="card col-7 p-0">
 				@yield('content')
 			</div>
 			<div class="card col-2 mr-5 p-0 offset-1">

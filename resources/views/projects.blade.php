@@ -9,5 +9,7 @@
 @endsection
 
 @section('content')
-    <p>Projects page</p>
+	<div class="card-body">
+		<p>Projects page</p>
+	</div>
 @endsection
