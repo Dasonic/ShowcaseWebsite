@@ -18,16 +18,16 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				{{-- Pages --}}
 				<div class="col-1 text-center nav-item active">
-					<a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-link text-light" href="/">Home <span class="sr-only">(current)</span></a>
 				</div>
 				<div class="col-1 text-center nav-item">
-					<a class="nav-link text-light" href="#">Projects</a>
+					<a class="nav-link text-light" href="/projects">Projects</a>
 				</div>
 				<div class="col-1 text-center">
-					<a class="nav-link text-light" href="#">About</a>
+					<a class="nav-link text-light" href="/about">About</a>
 				</div>
 				<div class="col-1 text-center">
-					<a class="nav-link text-light" href="#">Contact</a>
+					<a class="nav-link text-light" href="/contact">Contact</a>
 				</div>
 				{{-- End Pages --}}
 				{{-- Search Bar --}}
