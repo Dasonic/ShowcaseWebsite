@@ -4,13 +4,15 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/1a760d6e5a.js" crossorigin="anonymous"></script>
+	<link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
 	<head>
 	{{-- End Scripts --}}
 		<title>DascoProjects - @yield('title')</title>
 	</head>
 	<body class="bg-light">
-		<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-			<a class="navbar-brand m-0" href="#">Dasco Projects</a>
+		<nav class="navbar navbar-expand-lg navbar-light main-header">
+			<a class="navbar-brand m-0 text-info font-weight-bold font-italic" href="#">Dasco Projects</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -31,10 +33,12 @@
 				</div>
 				{{-- End Pages --}}
 				{{-- Search Bar --}}
-				<div class="input-group col-3 offset-1">
+				<div class="input-group col-3 offset-3">
 					<input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2">
 					<div class="input-group-append">
-						<span class="input-group-text" id="basic-addon2">?</span>
+						<span class="input-group-text" id="basic-addon2">
+							<i class="fas fa-search"></i>
+						</span>
 					</div>
 				</div>
 				{{-- End Search Bar --}}
@@ -54,19 +58,23 @@
 			</div>
 		</nav>
 		{{-- Main Content --}}
-		<div class="row mt-4">
+		<div class="row">
 			<div class="col-1"></div>
-			<div class="card col-7 p-0">
+			<div class="col-7">
 				@yield('content')
 			</div>
-			<div class="card col-2 mr-5 p-0 offset-1">
-				<div class="card-header">
-					Sidebar
-				</div>
-				<div class="card-body">
-					@section('sidebar')
-						This is the master sidebar.
-					@show
+			<div class="col-2 mr-5 p-0 offset-1 mt-4">
+				<div class="row" style="position: fixed; top: 5em;">
+					<div class="card">
+						<div class="card-header title-background">
+							Sidebar
+						</div>
+						<div class="card-body">
+							@section('sidebar')
+								This is the master sidebar.
+							@show
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
