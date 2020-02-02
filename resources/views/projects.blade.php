@@ -1,17 +1,43 @@
-@extends('layouts.main_layout')
+@extends('layouts.main_layout_sidebar')
 
 @section('title', 'Projects')
 
+@section('sidebar-title', 'Sort by Tag')
+{{-- @section('sidebar-body')
+	@parent
+	<p>Select a tag from the following list to filter the projects.</p>
+@endsection --}}
 @section('sidebar')
-    @parent
-
-    <p>This is appended to the master sidebar.</p>
+	<div class="list-group list-group-flush">
+		<button type="button" class="list-group-item list-group-item-action">c++</button>
+		<button type="button" class="list-group-item list-group-item-action">laravel</button>
+		<button type="button" class="list-group-item list-group-item-action">java</button>
+		<button type="button" class="list-group-item list-group-item-action">python</button>
+		<button type="button" class="list-group-item list-group-item-action">c#</button>
+	</div>
 @endsection
 
 @section('content')
-	<div class="card p-0">
+	{{-- @foreach($news as $news_card) --}}
+	<div class="card p-0 mt-4">
+		<div class="card-header title-background row m-0">
+			<div class="col-10 pl-0">
+				Project Title
+				{{-- {{$news_card->title}} --}}
+			</div>
+			<div class="col-2 text-right">
+				1/1/20
+				{{-- {{ \Carbon\Carbon::parse($news_card->posted_at)->format('d/m/Y')}} --}}
+				{{-- {{$news_card->posted_at}} --}}
+			</div>
+		</div>
 		<div class="card-body">
-			<p>Projects Page</p>
+			<p>Project Description...</p>
+			{{-- <p>{{$news_card->description}}}</p> --}}
+		</div>
+		<div class="card-footer text-muted">
+			2 days ago
 		</div>
 	</div>
+	{{-- @endforeach --}}
 @endsection

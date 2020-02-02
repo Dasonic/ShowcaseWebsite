@@ -13,7 +13,16 @@
 		@include('layouts.partials.navbar') {{-- Navbar --}}
 		{{-- Main Content --}}
 		<div class="row">
-			<div class="col-2"></div>
+			<div class="col-2 mr-5 p-0 offset-1 mt-4">
+				{{-- <div class="" style="position: fixed; top: 5em;"> --}}
+					<div class="card col-8 p-0">
+						<div class="card-header title-background">
+							@yield('sidebar-title')
+						</div>
+						@yield('sidebar')
+					</div>
+				{{-- </div> --}}
+			</div>
 			<div class="col-7">
 				@yield('content')
 			</div>

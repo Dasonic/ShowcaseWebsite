@@ -12,7 +12,7 @@
 	@foreach($news as $news_card)
 	<div class="card p-0 mt-4">
 		<div class="card-header title-background row m-0">
-			<div class="col-10">
+			<div class="col-10 pl-0">
 				{{$news_card->title}}
 			</div>
 			<div class="col-2 text-right">
