@@ -9,11 +9,9 @@
 @endsection --}}
 @section('sidebar')
 	<div class="list-group list-group-flush">
-		<button type="button" class="list-group-item list-group-item-action">c++</button>
-		<button type="button" class="list-group-item list-group-item-action">laravel</button>
-		<button type="button" class="list-group-item list-group-item-action">java</button>
-		<button type="button" class="list-group-item list-group-item-action">python</button>
-		<button type="button" class="list-group-item list-group-item-action">c#</button>
+		@foreach($tags_list as $tag)
+			<button type="button" class="list-group-item list-group-item-action">{{$tag->title}}</button>
+		@endforeach
 	</div>
 @endsection
 
