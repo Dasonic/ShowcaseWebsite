@@ -12,4 +12,7 @@ class Project extends Model
     public function applied_tags() {
         return $this->hasMany('App\AppliedTag');
     }
+    public function screenshots() {
+        return $this->hasMany('App\Screenshot');
+    }
 }

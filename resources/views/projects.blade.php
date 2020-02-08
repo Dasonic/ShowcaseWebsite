@@ -25,6 +25,39 @@
 		</div>
 		<div class="card-body">
 			<p>{{$project->description}}</p>
+			{{-- If there is images for the project, display them in a carousel --}}
+			@if (sizeof($project->screenshots) > 1)
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						{{-- Add the correct number of indicators to the bottom of the image --}}
+						@php($i = 0)
+						@while ($i < sizeof($project->screenshots))
+							<li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}" class="<?php if($i == 0) echo "active" ?>"></li>
+							@php($i++)
+						@endwhile
+					</ol>
+					<div class="carousel-inner">
+						{{-- Add the images to the carousel --}}
+						@php ($i = 0)
+						@foreach ($project->screenshots as $screenshot)
+						<div class="carousel-item <?php if($i == 0) echo "active" ?>">
+							<img src="{{$screenshot->image_src}}" class="d-block w-100" alt="...">
+						</div>
+						@php($i++)
+						@endforeach
+					</div>
+					{{-- Carousel Controls --}}
+					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						<span aria-hidden="true"><i class="fas fa-arrow-left text-dark"></i></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						<span aria-hidden="true"><i class="fas fa-arrow-right text-dark"></i></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			@endif
+			{{-- End Carousel --}}
 			<a href="{{$project->link}}" target="_blank">
 				<img src="/images/GitHub-Mark/PNG/GitHub-Mark-32px.png">
 				Github Repository

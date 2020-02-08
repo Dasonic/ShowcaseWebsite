@@ -13,7 +13,7 @@ class ProjectsController extends Controller
     public function index()
     {
         // Get projects and attached their applied tags as a relation. Only display 5 per page.
-        $projects = Project::with('applied_tags.tagslist')->simplePaginate(5);
+        $projects = Project::with('applied_tags.tagslist')->with('screenshots')->simplePaginate(5);
         // Get all the tags for the sidebar
 		$tags_list = TagsList::all();
         return view('projects')->with('tags_list', $tags_list)->with('projects', $projects);
