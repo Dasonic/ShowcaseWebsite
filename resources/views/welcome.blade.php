@@ -25,6 +25,9 @@
 		</div>
 	</div>
 	@endforeach
+	<div class="mt-4 row justify-content-center">
+		{{ $news->render() }}
+	</div>
 	{{-- <div class="card p-0">
 		<div class="card-body">
 			<p>This is my body content.</p>

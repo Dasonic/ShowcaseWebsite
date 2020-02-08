@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use App\News;
 
 class WelcomeController extends Controller
@@ -24,7 +26,8 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-		$news = News::all()->sortByDesc('posted_at');
+        $news = News::orderBy('posted_at', 'DESC')->simplePaginate(5);
+		// $news = News::paginate(5)->sortByDesc('posted_at');
         return view('welcome')->with('news', $news);
     }
 }
