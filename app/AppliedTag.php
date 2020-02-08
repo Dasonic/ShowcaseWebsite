@@ -10,7 +10,7 @@ class AppliedTag extends Model
 
     public function project()
     {
-        return $this->belongsTo('App\Projects');
+        return $this->belongsTo('App\Project');
     }
     public function tagslist()
     {
