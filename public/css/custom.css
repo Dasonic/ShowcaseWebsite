@@ -5,3 +5,10 @@
 .title-background {
 	background-color: #c8b8d6;
 }
+
+.tag_highlight {
+	background-color: #c8b8d6;
+	padding: 5px;
+	border-radius: 5px;
+	color: #664580;
+}

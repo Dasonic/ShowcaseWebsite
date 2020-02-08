@@ -22,8 +22,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Projects
 Route::get('/projects', 'ProjectsController@index');
-
+Route::get('/projects/sorted/{tag_title}', 'ProjectsController@index_with_tag');
+// End Projects
 Route::get('/about', function () {
     return view('about');
 });

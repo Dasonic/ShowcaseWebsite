@@ -24,7 +24,7 @@ class TagsListTableSeeder extends Seeder
             'title' => "python"
         ]);
         DB::table('tags_list')->insert([
-            'title' => "c#"
+            'title' => "c sharp"
         ]);
     }
 }

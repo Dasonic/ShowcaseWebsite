@@ -11,8 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\News', 10)->create();
+        factory('App\News', 20)->create();
         $this->call(TagsListTableSeeder::class);
+        $this->call(ProjectTableSeeder::class);
+        $this->call(AppliedTagsTableSeeder::class);
 		// $this->call(NewsTableSeeder::class);
         // $this->call(UsersTableSeeder::class);
     }
