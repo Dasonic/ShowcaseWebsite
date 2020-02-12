@@ -9,11 +9,11 @@
 		<div class="col-1 text-center nav-item active">
 			<a class="nav-link text-light" href="/">Home <span class="sr-only">(current)</span></a>
 		</div>
+		<div class="col-1 text-center">
+			<a class="nav-link text-light" href="/news">News</a>
+		</div>
 		<div class="col-1 text-center nav-item">
 			<a class="nav-link text-light" href="/projects">Projects</a>
-		</div>
-		<div class="col-1 text-center">
-			<a class="nav-link text-light" href="/about">About</a>
 		</div>
 		<div class="col-1 text-center">
 			<a class="nav-link text-light" href="/contact">Contact</a>
