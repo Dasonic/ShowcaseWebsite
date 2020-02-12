@@ -12,7 +12,7 @@
 	<body class="bg-light">
 		@include('layouts.partials.navbar') {{-- Navbar --}}
 		{{-- Main Content --}}
-		<div class="row">
+		<div class="row header_spacer">
 			<div class="col-2"></div>
 			<div class="col-7">
 				@yield('content')
@@ -20,7 +20,7 @@
 		</div>
 		{{-- End Main Content --}}
 
-		<footer class="text-muted pl-2" style="position: fixed; bottom: 0;">
+		<footer class="text-muted pl-2 fixed-bottom">
 			@section('footer')
 			Copyright 2019
 			@show

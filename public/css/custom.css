@@ -1,5 +1,10 @@
 .main-header {
 	background-color: #500989;
+	opacity: 0.9;
+}
+
+.header_spacer {
+	margin-top: 3rem;
 }
 
 .title-background {
