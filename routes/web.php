@@ -28,6 +28,6 @@ Route::get('/projects/sorted/{tag_title}', 'ProjectsController@index_with_tag');
 // End Projects
 Route::get('/news', 'NewsController@index');
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', 'ContactController@index');
+
+Route::get('/contact/send', 'MailController@send_contact_message');
