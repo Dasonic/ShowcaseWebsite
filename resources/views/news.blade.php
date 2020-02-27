@@ -10,8 +10,8 @@
 
 @section('content')
 	@foreach($news as $news_card)
-		<div class="card p-0 mt-4">
-			<div class="card-header title-background row m-0">
+		<div class="card p-0 mt-4 purple_border">
+			<div class="card-header title-background row m-0 purple_border">
 				<div class="col-10 pl-0">
 					{{$news_card->title}}
 				</div>

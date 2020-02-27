@@ -9,20 +9,28 @@
 @endsection
 
 @section('content')
-<div class="card p-0 mt-4">
-	<div class="card-header title-background row m-0">
-		<h5 class="mb-0">About</h5>
-	</div>
-	<div class="card-body" id="load_html">
-			<div class="spinner-border text-info" role="status" id="loading_spinner">
+<h2 class="mt-4 text-secondary">About</h2>
+<div class="card p-0 purple_border">
+	<div class="card-body p-0" id="load_html_about_project">
+			<div class="spinner-border text-info" role="status" id="loading_spinner_about_project">
 				<span class="sr-only">Loading...</span>
 			</div>
 	</div>
 </div>
+
+<div class="card p-0 purple_border mt-4">
+	<div class="card-body p-0" id="load_html_about_me">
+			<div class="spinner-border text-info" role="status" id="loading_spinner_about_me">
+				<span class="sr-only">Loading...</span>
+			</div>
+	</div>
+</div>
+
+
 <h2 class="mt-4 text-secondary">Latest News</h2>
 @foreach($news as $news_card)
-	<div class="card p-0 mt-4">
-		<div class="card-header title-background row m-0">
+	<div class="card p-0 mt-4 purple_border">
+		<div class="card-header title-background row m-0 purple_border">
 			<div class="col-10 pl-0">
 				{{$news_card->title}}
 			</div>
@@ -37,8 +45,10 @@
 @endforeach
 <script type="text/javascript">
 	$("document").ready(function() {
-		$("#loading_spinner").remove();
-		$("#load_html").load("/storage/about.html");
+		$("#loading_spinner_about_project").remove();
+		$("#load_html_about_project").load("/storage/about-project.html");
+		$("#loading_spinner_about_me").remove();
+		$("#load_html_about_me").load("/storage/about-me.html");
 	});
 </script>
 @endsection

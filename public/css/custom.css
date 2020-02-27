@@ -17,3 +17,11 @@
 	border-radius: 5px;
 	color: #664580;
 }
+
+.purple_border {
+	border-color: #BBA5CD;
+}
+
+.dark_purple_border {
+	border-color: #500989;
+}
