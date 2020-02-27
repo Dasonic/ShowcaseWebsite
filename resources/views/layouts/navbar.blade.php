@@ -1,17 +1,7 @@
 <html>
-	{{-- Scripts --}}
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-	<script src="https://kit.fontawesome.com/1a760d6e5a.js" crossorigin="anonymous"></script>
-	<link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
-	<head>
-	{{-- End Scripts --}}
-		<title>DascoProjects - @yield('title')</title>
-	</head>
 	<body class="bg-light">
 		<nav class="navbar navbar-expand-lg navbar-light main-header">
-			<a class="navbar-brand m-0 text-info font-weight-bold font-italic" href="#">Dasco Projects</a>
+			<a class="navbar-brand m-0 text-info" style="font-family: 'Consolas';" href="#">Lachlan Roberts</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
