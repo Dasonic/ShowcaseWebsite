@@ -12,7 +12,7 @@
 	<body class="bg-light">
 		@include('layouts.partials.navbar') {{-- Navbar --}}
 		{{-- Main Content --}}
-		<div class="row header_spacer">
+		<div class="row header_spacer ml-0 mr-0">
 			<div class="col-2"></div>
 			<div class="col-7">
 				@yield('content')
