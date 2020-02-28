@@ -1,8 +1,8 @@
 @extends('layouts.main_layout')
 
 @section('content')
-	<div class="card p-0">
-		<div class="card-header">{{ __('Register') }}</div>
+	<div class="card p-0 mt-4 purple_border">
+		<div class="card-header title-background purple_border">{{ __('Register') }}</div>
 
 		<div class="card-body">
 			<form method="POST" action="{{ route('register') }}">

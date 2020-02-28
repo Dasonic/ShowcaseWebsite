@@ -9,8 +9,8 @@
 @endsection
 
 @section('content')
-<div class="card p-0 mt-4">
-	<div class="card-header title-background row m-0">
+<div class="card p-0 mt-4 purple_border">
+	<div class="card-header title-background row m-0 purple_border">
 		<h5 class="mb-0">Contact</h5>
 	</div>
 	<div class="card-body">

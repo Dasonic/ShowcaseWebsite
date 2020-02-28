@@ -15,8 +15,8 @@
 		<div class="row header_spacer">
 			<div class="col-2 mr-5 p-0 offset-1 mt-4">
 				{{-- <div class="" style="position: fixed; top: 5em;"> --}}
-					<div class="card col-8 p-0">
-						<div class="card-header title-background">
+					<div class="card col-8 p-0 purple_border">
+						<div class="card-header title-background purple_border">
 							@yield('sidebar-title')
 						</div>
 						@yield('sidebar')
