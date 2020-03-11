@@ -7,7 +7,8 @@
 	<link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
 	<head>
 	{{-- End Scripts --}}
-		<title>DascoProjects - @yield('title')</title>
+		<title>Lachlan Roberts - @yield('title')</title>
+		{{-- <link rel="icon" type="image/png" href="/storage/me_square.png"> --}}
 	</head>
 	<body class="bg-light">
 		@include('layouts.partials.navbar') {{-- Navbar --}}
