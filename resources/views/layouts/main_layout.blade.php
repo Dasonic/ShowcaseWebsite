@@ -22,7 +22,7 @@
 
 		<footer class="text-muted pl-2 fixed-bottom">
 			@section('footer')
-			Copyright 2019
+			Copyright 2020
 			@show
 		</footer>	
 	</body>
