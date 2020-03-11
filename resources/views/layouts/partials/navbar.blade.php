@@ -38,9 +38,9 @@
 			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 				<a class="dropdown-item" href="/register">Sign up</a>
 				<a class="dropdown-item" href="/login">Log-in</a>
-			<div class="dropdown-divider"></div>
+			{{-- <div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#">Something else here</a>
-			</div>
+			</div> --}}
 		</div>
 		{{-- End Log in --}}
 	</div>
