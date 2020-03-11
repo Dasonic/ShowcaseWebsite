@@ -27,9 +27,9 @@
 </div>
 
 
-<h2 class="mt-4 text-secondary">Latest News</h2>
+<h2 class="mt-4 text-secondary mb-2">Latest News</h2>
 @foreach($news as $news_card)
-	<div class="card p-0 mt-4 purple_border">
+	<div class="card p-0 mt-2 mb-2 purple_border">
 		<div class="card-header title-background row m-0 purple_border">
 			<div class="col-10 pl-0">
 				{{$news_card->title}}
