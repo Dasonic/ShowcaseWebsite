@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light main-header fixed-top row">
 	<span class="col-2">
-		<a class="navbar-brand m-0 ml-4" style= href="#"><img style="height: 2em;" src="/storage/icon_gold.png"></a>
+		<a class="navbar-brand m-0 ml-4" style= href="#"><img style="height: 2em;" src="/storage/icon.png"></a>
 	</span>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
