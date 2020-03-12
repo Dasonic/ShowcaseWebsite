@@ -1,27 +1,28 @@
-<nav class="navbar navbar-expand-lg navbar-light main-header fixed-top">
-	<a class="navbar-brand m-0" style= href="#"><img class="" style="height: 2em;" src="/storage/me_square.png"></a>
-	<a class="navbar-brand m-0" style= href="#"><img src="/storage/logo.png"></a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light main-header fixed-top row">
+	<span class="col-2">
+		<a class="navbar-brand m-0 ml-4" style= href="#"><img style="height: 2em;" src="/storage/icon_gold.png"></a>
+	</span>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		{{-- Pages --}}
-		<div class="col-1 text-center nav-item active">
+		<div class="col-1 pl-0 pr-0 nav-item active">
 			<a class="nav-link text-light" href="/">Home <span class="sr-only">(current)</span></a>
 		</div>
-		<div class="col-1 text-center">
+		<div class="col-1 pl-0 pr-0">
 			<a class="nav-link text-light" href="/news">News</a>
 		</div>
-		<div class="col-1 text-center nav-item">
+		<div class="col-1 pl-0 pr-0 nav-item">
 			<a class="nav-link text-light" href="/projects">Projects</a>
 		</div>
-		<div class="col-1 text-center">
+		<div class="col-1 pl-0 pr-0">
 			<a class="nav-link text-light" href="/contact">Contact</a>
 		</div>
 		{{-- End Pages --}}
 		{{-- Search Bar --}}
-		<div class="input-group col-3 offset-3">
+		<div class="input-group col-3 offset-1">
 			<input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2">
 			<div class="input-group-append">
 				<span class="input-group-text" id="basic-addon2">
