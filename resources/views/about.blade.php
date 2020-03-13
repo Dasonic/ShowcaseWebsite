@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-<h2 class="mt-4 text-secondary">About</h2>
+<h2 class="mt-4 ml-3 text-secondary">About</h2>
 <div class="card p-0 purple_border">
 	<div class="card-body p-0" id="load_html_about_project">
 			<div class="spinner-border text-info" role="status" id="loading_spinner_about_project">
@@ -31,10 +31,10 @@
 @foreach($news as $news_card)
 	<div class="card p-0 mt-2 mb-2 purple_border">
 		<div class="card-header title-background row m-0 purple_border">
-			<div class="col-10 pl-0">
+			<div class="col-12 col-lg-10 pl-0">
 				{{$news_card->title}}
 			</div>
-			<div class="col-2 text-right">
+			<div class="col-12 col-lg-2 text-right">
 				{{ \Carbon\Carbon::parse($news_card->posted_at)->format('d/m/Y')}}
 			</div>
 		</div>

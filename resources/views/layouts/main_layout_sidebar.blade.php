@@ -14,9 +14,9 @@
 		@include('layouts.partials.navbar') {{-- Navbar --}}
 		{{-- Main Content --}}
 		<div class="row header_spacer ml-0 mr-0">
-			<div class="col-2 mr-5 p-0 offset-1 mt-4">
+			<div class="offset-1 p-lg-0 col-10 col-lg-2 mt-4">
 				{{-- <div class="" style="position: fixed; top: 5em;"> --}}
-					<div class="card col-8 p-0 purple_border">
+					<div class="card col-12 col-lg-8 p-0 purple_border">
 						<div class="card-header title-background purple_border">
 							@yield('sidebar-title')
 						</div>
@@ -24,7 +24,7 @@
 					</div>
 				{{-- </div> --}}
 			</div>
-			<div class="col-7">
+			<div class="offset-1 offset-lg-0 col-10 col-lg-7">
 				@yield('content')
 			</div>
 		</div>

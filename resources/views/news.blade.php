@@ -12,10 +12,10 @@
 	@foreach($news as $news_card)
 		<div class="card p-0 mt-4 purple_border">
 			<div class="card-header title-background row m-0 purple_border">
-				<div class="col-10 pl-0">
+				<div class="col-12 col-lg-10 pl-0">
 					{{$news_card->title}}
 				</div>
-				<div class="col-2 text-right">
+				<div class="col-12 col-lg-2 text-right">
 					{{ \Carbon\Carbon::parse($news_card->posted_at)->format('d/m/Y')}}
 					{{-- {{$news_card->posted_at}} --}}
 				</div>
