@@ -14,7 +14,7 @@
 		{{-- Main Content --}}
 		<div class="row header_spacer ml-0 mr-0">
 			{{-- <div class="col-2"></div> --}}
-			<div class="offset-1 col-10 offset-lg-2 col-lg-7">
+			<div class="offset-1 col-10 offset-lg-2 col-lg-8">
 				@yield('content')
 			</div>
 		</div>
