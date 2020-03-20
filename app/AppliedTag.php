@@ -14,6 +14,6 @@ class AppliedTag extends Model
     }
     public function tagslist()
     {
-        return $this->belongsTo('App\TagsList', 'id');
+        return $this->belongsTo('App\TagsList', 'tag_id');
     }
 }

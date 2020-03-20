@@ -30,7 +30,7 @@ class ProjectsController extends Controller
         foreach($projects as $project) {
             $remove = true;
             foreach($project->applied_tags as $tag) {
-                if ($tag->id == $tag_id)
+                if ($tag->tag_id == $tag_id)
                     $remove = false;
             }
             if ($remove)
