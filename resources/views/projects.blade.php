@@ -31,32 +31,32 @@
 				<p>{{$project->description}}</p>
 				{{-- If there is images for the project, display them in a carousel --}}
 				@if (sizeof($project->screenshots) > 1)
-					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-						<ol class="carousel-indicators">
-							{{-- Add the correct number of indicators to the bottom of the image --}}
-							@php($i = 0)
-							@while ($i < sizeof($project->screenshots))
-								<li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}" class="<?php if($i == 0) echo "active" ?>"></li>
-								@php($i++)
-							@endwhile
-						</ol>
+					<div id="carouselProjects<?php  echo $project->id ?>" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner">
 							{{-- Add the images to the carousel --}}
 							@php ($i = 0)
 							@foreach ($project->screenshots as $screenshot)
 							<div class="carousel-item <?php if($i == 0) echo "active" ?>">
-								<img src="{{$screenshot->image_src}}" class="d-block w-100" alt="...">
+								<img src="{{$screenshot->image_src}}" class="d-block col-10 offset-1 p-2 border rounded" alt="...">
 							</div>
 							@php($i++)
 							@endforeach
 						</div>
+						<ol class="carousel-indicators">
+							{{-- Add the correct number of indicators to the bottom of the image --}}
+							@php($i = 0)
+							@while ($i < sizeof($project->screenshots))
+								<li data-target="#carouselProjects<?php  echo $project->id ?>" data-slide-to="{{$i}}" class="<?php if($i == 0) echo "active" ?>"></li>
+								@php($i++)
+							@endwhile
+						</ol>
 						{{-- Carousel Controls --}}
-						<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-							<span aria-hidden="true"><i class="fas fa-arrow-left text-dark"></i></span>
+						<a class="carousel-control-prev" href="#carouselProjects<?php  echo $project->id ?>" role="button" data-slide="prev">
+							<span aria-hidden="true"><i class="fas fa-chevron-left text-dark"></i></span>
 							<span class="sr-only">Previous</span>
 						</a>
-						<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-							<span aria-hidden="true"><i class="fas fa-arrow-right text-dark"></i></span>
+						<a class="carousel-control-next" href="#carouselProjects<?php  echo $project->id ?>" role="button" data-slide="next">
+							<span aria-hidden="true"><i class="fas fa-chevron-right text-dark"></i></span>
 							<span class="sr-only">Next</span>
 						</a>
 					</div>
