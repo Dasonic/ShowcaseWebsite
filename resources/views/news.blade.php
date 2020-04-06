@@ -37,7 +37,7 @@
 			</div>
 		</div>
 		<div class="card-body">
-			<textarea name="description" id="description" rows="3" placeholder="Description" class="col-12 form-control @error('description')  is-invalid @enderror" value="{{ old('description') }}" required></textarea>
+			<textarea name="description" id="description" rows="3" placeholder="Description" class="col-12 form-control @error('description')  is-invalid @enderror" required>{{ old('description') }}</textarea>
 			@error('description')
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
