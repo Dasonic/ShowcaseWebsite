@@ -30,4 +30,31 @@ class NewsController extends Controller
 		// $news = News::paginate(5)->sortByDesc('posted_at');
         return view('news')->with('news', $news);
     }
+
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'title' => ['required', 'string', 'max:100'],
+            'posted_at' => ['required', 'date'],
+            'description' => ['required', 'string'],
+        ]);
+    }
+
+    public function store(Request $request) {
+        $news = new News();
+        $news->title = $request->title;
+        $news->posted_at = $request->posted_at;
+        $news->description = $request->description;
+        $news->save();
+        return back();
+    }
+
+    public function destroy($id)
+    {
+        $news = News::findorfail($id);
+        $news->delete();
+
+        return back();
+    }
 }

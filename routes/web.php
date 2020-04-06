@@ -26,7 +26,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/projects', 'ProjectsController@index');
 Route::get('/projects/sorted/{tag_title}', 'ProjectsController@index_with_tag');
 // End Projects
-Route::get('/news', 'NewsController@index');
+Route::resource('/news', 'NewsController');
+
 
 Route::get('/contact', 'ContactController@index');
 
