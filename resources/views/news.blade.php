@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+{{-- Create new news post if admin --}}
 	@if (!Auth::guest() && Auth::user()->role == "admin")
 	<form method="POST" action="/news" class="card p-0 mt-4 purple_border input-group" >
 		@csrf
@@ -48,6 +49,8 @@
 		</div>
 	</form>
 	@endif
+{{-- End create new news post if admin --}}
+{{-- Display news cards --}}
 	@foreach($news as $news_card)
 		<div class="card p-0 mt-4 purple_border">
 			<div class="card-header title-background row m-0 purple_border">
@@ -70,6 +73,7 @@
 			</div>
 		</div>
 	@endforeach
+{{-- End display news cards --}}
 	<div class="mt-4 row justify-content-center">
 		{{ $news->render() }}
 	</div>
