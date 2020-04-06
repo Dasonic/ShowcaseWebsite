@@ -16,5 +16,10 @@ class AppliedTagsTableSeeder extends Seeder
             'project_id' => 1,
             'tag_id' => 1
         ]);
+        DB::table('applied_tags')->insert([
+            'id' => 2,
+            'project_id' => 2,
+            'tag_id' => 2
+        ]);
     }
 }
