@@ -58,7 +58,7 @@
 							<div class="alert alert-danger">{{ $message }}</div>
 						</span>
 					@enderror
-				  </div>
+				</div>
 			</div>
 			<div class="card-footer row m-0 justify-content-end">
 				<button type="submit" class="btn btn-primary">Submit</button>
@@ -82,7 +82,17 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<p>{{$project->description}}</p>
+				<p class="mb-0">{{$project->description}}</p>
+				{{-- Github Repository Link--}}
+				<a href="{{$project->link}}" target="_blank" class="row justify-content-center mb-4">
+					<div class="input-group mt-3 col-5">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fab fa-github"></i></span>
+						</div>
+						<input type="button" class="form-control text-primary" value="Github Repository" href="{{$project->link}}" >
+					</div>
+				</a>
+				{{-- End Github Repository Link--}}
 				{{-- If there is images for the project, display them in a carousel --}}
 				@if (sizeof($project->screenshots) > 1)
 					<div id="carouselProjects<?php  echo $project->id ?>" class="carousel slide" data-ride="carousel">
@@ -116,14 +126,10 @@
 					</div>
 				@endif
 				{{-- End Carousel --}}
-				<a href="{{$project->link}}" target="_blank">
-					<img src="/images/GitHub-Mark/PNG/GitHub-Mark-32px.png">
-					Github Repository
-				</a>
 			</div>
 			<div class="card-footer text-muted">
 				@foreach ($project->applied_tags as $tag)
-					<span class="tag_highlight">{{$tag->tagslist->title}}</span>
+					<span class="badge tag_highlight">{{$tag->tagslist->title}}</span>
 				@endforeach
 			</div>
 		</div>
