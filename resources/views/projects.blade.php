@@ -13,6 +13,60 @@
 @endsection
 {{-- End Sidebar --}}
 @section('content')
+{{-- Create new project if admin --}}
+	@if (!Auth::guest() && Auth::user()->role == "admin")
+	<form method="POST" action="/projects" class="card p-0 mt-4 purple_border input-group" >
+		@csrf
+		<div class="card">
+			<div class="card-header title-background row m-0 purple_border">
+				<div class="form-group col-lg-9 p-0">
+					<input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Title" value="{{ old('title') }}" required>
+					@error('title')
+						<span class="invalid-feedback" role="alert">
+							<div class="alert alert-danger">{{ $message }}</div>
+						</span>
+					@enderror
+				</div>
+				<div class="form-group col-lg-3 p-0">
+					<div class="input-group row justify-content-end">
+						<input type="date" name="last_updated_at" id="last_updated_at" class="form-control col-lg-7" @error('last_updated_at') is-invalid @enderror value="{{ old('last_updated_at') }}" required>
+						<div class="input-group-append">
+							<span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+						</div>
+						@error('last_updated_at')
+						<span class="invalid-feedback" role="alert">
+							<div class="alert alert-danger">{{ $message }}</div>
+						</span>
+						@enderror
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+				<textarea name="description" id="description" rows="3" placeholder="Description" class="col-12 form-control @error('description')  is-invalid @enderror" required>{{ old('description') }}</textarea>
+				@error('description')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+				@enderror
+				<div class="input-group mt-3">
+					<div class="input-group-prepend">
+					  <span class="input-group-text"><i class="fab fa-github"></i></span>
+					</div>
+					<input name="link" id="link" type="text" class="form-control @error('link') is-invalid @enderror" placeholder="Link" value="{{ old('link') }}" required>
+					@error('link')
+						<span class="invalid-feedback" role="alert">
+							<div class="alert alert-danger">{{ $message }}</div>
+						</span>
+					@enderror
+				  </div>
+			</div>
+			<div class="card-footer row m-0 justify-content-end">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</div>
+	</form>
+	@endif
+{{-- End create new project if admin --}}
 	@if (sizeof($projects) < 1)
 		<p class="mt-4 text-muted">No Matching Projects</p>
 	@else

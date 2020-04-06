@@ -41,4 +41,21 @@ class ProjectsController extends Controller
         $tags_list = TagsList::all();
         return view('projects')->with('tags_list', $tags_list)->with('projects', $projects);
     }
+
+    public function store(Request $request) {
+        $validatedData = $request->validate([
+            'title' => ['required', 'string', 'max:100'],
+            'last_updated_at' => ['required', 'date'],
+            'description' => ['required', 'string'],
+            'link' => ['required', 'url'],
+        ]);
+
+        $project = new Project();
+        $project->title = $request->title;
+        $project->last_updated_at = $request->last_updated_at;
+        $project->description = $request->description;
+        $project->link = $request->link;
+        $project->save();
+        return back();
+    }
 }
