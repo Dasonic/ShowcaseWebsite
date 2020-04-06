@@ -22,7 +22,7 @@
 		</div>
 		{{-- End Pages --}}
 		{{-- Search Bar --}}
-		<div class="input-group col-6 col-lg-3 offset-lg-1">
+		<div class="input-group col-6 col-lg-3 offset-lg-1 mr-lg-4">
 			<input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2">
 			<div class="input-group-append">
 				<span class="input-group-text" id="basic-addon2">
@@ -32,13 +32,26 @@
 		</div>
 		{{-- End Search Bar --}}
 		{{-- Log in --}}
-		<div class="nav-item dropdown col-8 col-lg-1 offset-lg-1">
+		<div class="nav-item dropdown col-8 col-lg-1 ml-lg-4">
 			<a class="nav-link dropdown-toggle text-light text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Profile
+				@if (Auth::guest())
+					Profile
+				@else
+					{{Auth::user()->name}}
+				@endif
 			</a>
 			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item" href="/register">Sign up</a>
-				<a class="dropdown-item" href="/login">Log-in</a>
+				@if (Auth::guest())
+					<a class="dropdown-item" href="/register">Sign up</a>
+					<a class="dropdown-item" href="/login">Log-in</a>
+				@else
+					<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+						Log out
+					</a>    
+					<form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+						{{ csrf_field() }}
+					</form>
+				@endif
 			{{-- <div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="#">Something else here</a>
 			</div> --}}
