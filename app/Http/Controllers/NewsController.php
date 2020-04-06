@@ -32,16 +32,13 @@ class NewsController extends Controller
     }
 
 
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
+    public function store(Request $request) {
+        $validatedData = $request->validate([
             'title' => ['required', 'string', 'max:100'],
             'posted_at' => ['required', 'date'],
             'description' => ['required', 'string'],
         ]);
-    }
 
-    public function store(Request $request) {
         $news = new News();
         $news->title = $request->title;
         $news->posted_at = $request->posted_at;

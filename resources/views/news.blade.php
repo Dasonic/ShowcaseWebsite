@@ -13,41 +13,30 @@
 	<form method="POST" action="/news" class="card p-0 mt-4 purple_border input-group" >
 		@csrf
 		<div class="card-header title-background row m-0 purple_border">
-			{{-- <div class="col-12 col-lg-9 pl-0">
-				<input type="text" name="title" id="title" class="form-control" @error('title') is-invalid @enderror value="{{ old('title') }}" required>
+			<div class="form-group col-lg-9 p-0">
+				<input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" placeholder="Title" value="{{ old('title') }}" required>
 				@error('title')
 					<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
+						<div class="alert alert-danger">{{ $message }}</div>
 					</span>
 				@enderror
-			</div> --}}
-			{{-- <div class="col-12 col-lg-2 text-right">
-				<input type="date" name="posted_at" id="posted_at" class="form-control" @error('posted_at') is-invalid @enderror value="{{ old('posted_at') }}" required>
-				@error('posted_at')
-					<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-			</div> --}}
-			<div class="form-group col-lg-9 p-0">
-				<input type="text" name="title" id="title" class="form-control" placeholder="Title" @error('title') is-invalid @enderror value="{{ old('title') }}" required>
 			</div>
 			<div class="form-group col-lg-3 p-0">
 				<div class="input-group row justify-content-end">
-					@error('title')
-						<span class="invalid-feedback" role="alert">
-							<strong>{{ $message }}</strong>
-						</span>
-					@enderror
 					<input type="date" name="posted_at" id="posted_at" class="form-control col-lg-7" @error('posted_at') is-invalid @enderror value="{{ old('posted_at') }}" required>
 					<div class="input-group-append">
-					<span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+						<span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
 					</div>
+					@error('posted_at')
+					<span class="invalid-feedback" role="alert">
+						<div class="alert alert-danger">{{ $message }}</div>
+					</span>
+					@enderror
 				</div>
 			</div>
 		</div>
 		<div class="card-body">
-			<textarea name="description" id="description" class="col-12 form-control" rows="3" placeholder="Description" @error('description') is-invalid @enderror required></textarea>
+			<textarea name="description" id="description" rows="3" placeholder="Description" class="col-12 form-control @error('description')  is-invalid @enderror" value="{{ old('description') }}" required></textarea>
 			@error('description')
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
@@ -55,7 +44,6 @@
 			@enderror
 		</div>
 		<div class="card-footer row m-0 justify-content-end">
-			{{-- <button type="button" class="btn btn-primary">Primary</button> --}}
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</div>
 	</form>
