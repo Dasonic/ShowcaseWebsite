@@ -15,7 +15,7 @@
 @section('content')
 {{-- Create new project if admin --}}
 	@if (!Auth::guest() && Auth::user()->role == "admin")
-	<form method="POST" action="/projects" class="card p-0 mt-4 purple_border input-group" >
+	<form method="POST" action="/projects" class="card p-0 mt-4 purple_border input-group" enctype="multipart/form-data">
 		@csrf
 		<div class="card">
 			<div class="card-header title-background row m-0 purple_border">
@@ -59,6 +59,46 @@
 						</span>
 					@enderror
 				</div>
+				<div class="mt-3">
+					<a class="" data-toggle="collapse" href="#collapseAdvancedOptions" role="button" aria-expanded="false" aria-controls="collapseAdvancedOptions">
+						<i class="fas fa-angle-down mr-1"></i> Advanced Options
+					</a>
+				</div>
+				<div class="collapse mt-3" id="collapseAdvancedOptions">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+						  <span class="input-group-text" id="screenshotAddon01"><i class="fas fa-folder"></i></span>
+						</div>
+						<div class="custom-file">
+						  	<input type="file" multiple accept="image/*" class="custom-file-input" id="screenshot" name="screenshots[]" aria-describedby="screenshotAddon01">
+						  	<label class="custom-file-label" for="screenshot">Choose files</label>
+						  	@error('screenshot')
+								<span class="invalid-feedback" role="alert">
+									<div class="alert alert-danger">{{ $message }}</div>
+								</span>
+							@enderror
+						</div>
+						<script>
+							$('#screenshot').on('change',function(e){
+								//get the file name
+								var fileName = e.target.files[0].name;;
+								//replace the "Choose a file" label
+								$(this).next('.custom-file-label').html(fileName);
+							})
+						</script>
+					</div>
+					<div class="input-group mt-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-tags"></i></span>
+						</div>
+						<input name="tags" id="tags" type="text" class="form-control @error('tags') is-invalid @enderror" placeholder="Tags" value="{{ old('tags') }}" required>
+						@error('tags')
+							<span class="invalid-feedback" role="alert">
+								<div class="alert alert-danger">{{ $message }}</div>
+							</span>
+						@enderror
+					</div>
+				</div>
 			</div>
 			<div class="card-footer row m-0 justify-content-end">
 				<button type="submit" class="btn btn-primary">Submit</button>
@@ -94,7 +134,7 @@
 				</a>
 				{{-- End Github Repository Link--}}
 				{{-- If there is images for the project, display them in a carousel --}}
-				@if (sizeof($project->screenshots) > 1)
+				@if (sizeof($project->screenshots) > 0)
 					<div id="carouselProjects<?php  echo $project->id ?>" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner">
 							{{-- Add the images to the carousel --}}
@@ -106,23 +146,26 @@
 							@php($i++)
 							@endforeach
 						</div>
-						<ol class="carousel-indicators">
-							{{-- Add the correct number of indicators to the bottom of the image --}}
-							@php($i = 0)
-							@while ($i < sizeof($project->screenshots))
-								<li data-target="#carouselProjects<?php  echo $project->id ?>" data-slide-to="{{$i}}" class="<?php if($i == 0) echo "active" ?>"></li>
-								@php($i++)
-							@endwhile
-						</ol>
-						{{-- Carousel Controls --}}
-						<a class="carousel-control-prev" href="#carouselProjects<?php  echo $project->id ?>" role="button" data-slide="prev">
-							<span aria-hidden="true"><i class="fas fa-chevron-left text-dark"></i></span>
-							<span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next" href="#carouselProjects<?php  echo $project->id ?>" role="button" data-slide="next">
-							<span aria-hidden="true"><i class="fas fa-chevron-right text-dark"></i></span>
-							<span class="sr-only">Next</span>
-						</a>
+						{{-- If there is more than one image, add carousel controls --}}
+						@if (sizeof($project->screenshots) > 1)
+							<ol class="carousel-indicators">
+								{{-- Add the correct number of indicators to the bottom of the image --}}
+								@php($i = 0)
+								@while ($i < sizeof($project->screenshots))
+									<li data-target="#carouselProjects<?php  echo $project->id ?>" data-slide-to="{{$i}}" class="<?php if($i == 0) echo "active" ?>"></li>
+									@php($i++)
+								@endwhile
+							</ol>
+							{{-- Carousel Controls --}}
+							<a class="carousel-control-prev" href="#carouselProjects<?php  echo $project->id ?>" role="button" data-slide="prev">
+								<span aria-hidden="true"><i class="fas fa-chevron-left text-dark"></i></span>
+								<span class="sr-only">Previous</span>
+							</a>
+							<a class="carousel-control-next" href="#carouselProjects<?php  echo $project->id ?>" role="button" data-slide="next">
+								<span aria-hidden="true"><i class="fas fa-chevron-right text-dark"></i></span>
+								<span class="sr-only">Next</span>
+							</a>
+						@endif
 					</div>
 				@endif
 				{{-- End Carousel --}}

@@ -7,9 +7,12 @@ use Illuminate\Support\Facades\DB;
 use App\Project;
 use App\TagsList;
 use App\AppliedTag;
+use App\Traits\UploadTrait;
+use App\Screenshot;
 
 class ProjectsController extends Controller
 {
+    use UploadTrait;
     public function index()
     {
         // Get projects and attached their applied tags as a relation. Only display 5 per page.
@@ -43,19 +46,53 @@ class ProjectsController extends Controller
     }
 
     public function store(Request $request) {
+        // dd($request);
         $validatedData = $request->validate([
             'title' => ['required', 'string', 'max:100'],
             'last_updated_at' => ['required', 'date'],
             'description' => ['required', 'string'],
             'link' => ['required', 'url'],
+            // 'screenshot' => ['array'|'image', 'max:2048'],
         ]);
+        // dd($request);
 
-        $project = new Project();
+        $project = new Project();      
         $project->title = $request->title;
         $project->last_updated_at = $request->last_updated_at;
         $project->description = $request->description;
         $project->link = $request->link;
         $project->save();
+        // Upload Screenshots
+        if ($request->screenshots != null) {
+            // Get all the images
+            $images = $request->file('screenshots');
+            // Upload every image and store its location in the screenshots table
+            for ($i = 0; $i < sizeof($request->screenshots); $i++) {
+                $image = $images[$i];
+                $name = $request->title . ' ' . (string)$i;
+                $folder = '/screenshots';
+                $filePath = '/storage/' . $this->uploadOne($image, $folder, 'public', $name);
+
+                $screenshot = new Screenshot();
+                $screenshot->project_id = $project->id;
+                $screenshot->image_src = $filePath;
+                $screenshot->save();
+            }
+        }
+        // Apply Tags
+        // Split into seperate tags
+        $tags = explode(' ', $request->tags);
+        foreach ($tags as $tag) {
+            // Find the tag in TagsList to get the ID
+            $tag_info = TagsList::where('title', $tag)->first();
+            // If its found, create a new applied tag
+            if ($tag_info != null) {
+                $applied_tag = new AppliedTag();
+                $applied_tag->project_id = $project->id;
+                $applied_tag->tag_id = $tag_info->id;
+                $applied_tag->save();
+            }
+        }
         return back();
     }
 }
