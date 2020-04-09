@@ -9,6 +9,7 @@ use App\TagsList;
 use App\AppliedTag;
 use App\Traits\UploadTrait;
 use App\Screenshot;
+use Illuminate\Support\Facades\Log;
 
 class ProjectsController extends Controller
 {
@@ -93,6 +94,25 @@ class ProjectsController extends Controller
                 $applied_tag->save();
             }
         }
+        return back();
+    }
+    public function destroy($id)
+    {
+        // Find the project
+        $project = Project::findorfail($id);
+        // Find all the screenshots for the project
+        $screenshots = Screenshot::where('project_id', $id)->get();
+        // Log::debug("test");
+        foreach($screenshots as $screenshot) {
+            Log::debug($screenshot->image_src);
+            $this->deleteOne($screenshot->image_src, 'public'); // Delete image from storage
+            $screenshot->delete(); // Delete from database
+        }
+        // Find and delete all the applied tags for the project
+        AppliedTag::where('project_id', $id)->delete();
+
+        $project->delete();
+
         return back();
     }
 }

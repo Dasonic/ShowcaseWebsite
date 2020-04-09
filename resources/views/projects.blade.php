@@ -116,9 +116,16 @@
 				<div class="col-10 pl-0">
 					{{$project->title}}
 				</div>
-				<div class="col-2 text-right">
+				<div class="col-12 col-lg-2 text-right">
 					{{-- Convert date into Australian format --}}
 					{{ \Carbon\Carbon::parse($project->last_updated_at)->format('d/m/Y')}}
+					@if (!Auth::guest() && Auth::user()->role == "admin")
+						<form action="/projects/{{$project->id}}" method="POST" style="display:inline;" class="ml-3">
+							@method('DELETE')
+							@csrf
+							<button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+						</form>
+					@endif
 				</div>
 			</div>
 			<div class="card-body">
