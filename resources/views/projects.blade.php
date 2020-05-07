@@ -129,7 +129,7 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<p class="mb-0">{{$project->description}}</p>
+				<div class="mb-0" style="white-space:pre-wrap;">{{$project->description}}</div>
 				{{-- Github Repository Link--}}
 				<a href="{{$project->link}}" target="_blank" class="row justify-content-center mb-4">
 					<div class="input-group mt-3 col-5">
