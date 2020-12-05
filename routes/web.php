@@ -28,7 +28,11 @@ Route::get('/projects/sorted/{tag_title}', 'ProjectsController@index_with_tag');
 // End Projects
 Route::resource('/news', 'NewsController');
 
-
+// Contact
 Route::get('/contact', 'ContactController@index');
-
 Route::get('/contact/send', 'MailController@send_contact_message');
+// End content
+
+Route::get('contact-form', 'CaptchaServiceController@index');
+Route::post('captcha-validation', 'CaptchaServiceController@capthcaFormValidate');
+Route::get('reload-captcha', 'CaptchaServiceController@reloadCaptcha');

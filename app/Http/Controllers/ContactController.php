@@ -16,17 +16,4 @@ class ContactController extends Controller
     {
         return view('contact');
     }
-
-    // public function send_mail(Request $request)
-    // {
-    //     dd($request);
-    //     $contact = array(
-    //                     'name' => $request->input('name'),
-    //                     'email' => $request->input('email'),
-    //                     'message' => $request->input('message')
-    //     );
-    //     $this->MailController->send_contact_message($contact);
-    //     return view('contact');
-    // }
-
 }
