@@ -42,12 +42,12 @@
 			</div>
 
 			<div class="form-group row">
-				<label for="message" class="col-md-4 col-form-label text-md-right">{{ __('Message') }}</label>
+				<label for="message_body" class="col-md-4 col-form-label text-md-right">{{ __('Message') }}</label>
 
 				<div class="col-md-6">
-					<textarea id="message" type="text" class="form-control @error('message') is-invalid @enderror" name="message" required></textarea>
+					<textarea id="message_body" type="text" class="form-control @error('message_body') is-invalid @enderror" name="message_body" required>{{old('message_body') }}</textarea>
 
-					@error('message')
+					@error('message_body')
 						<span class="invalid-feedback" role="alert">
 							<strong>{{ $message }}</strong>
 						</span>
