@@ -12,13 +12,13 @@ class MailController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'message' => 'required',
+            'message_body' => 'required',
             'captcha' => 'required|captcha'
         ]);
         $contact = array(
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'message' => $request->input('message'),
+            'message' => $request->input('message_body'),
         );
         Mail::to('example@email.com')->send(new ContactMessage($contact));
         
