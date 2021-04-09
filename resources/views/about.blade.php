@@ -38,7 +38,7 @@
 				{{ \Carbon\Carbon::parse($news_card->posted_at)->format('d/m/Y')}}
 			</div>
 		</div>
-		<div class="card-body" style="white-space: pre-line">>
+		<div class="card-body" style="white-space: pre-line">
 			<p>{{$news_card->description}}</p>
 		</div>
 	</div>
