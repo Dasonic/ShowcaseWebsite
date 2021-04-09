@@ -113,7 +113,7 @@
 		@foreach($projects as $project)
 		<div class="card p-0 mt-4 purple_border">
 			<div class="card-header title-background row m-0 purple_border">
-				<div class="col-10 pl-0">
+				<div class="col-10 pl-0 h5 mb-0 ">
 					{{$project->title}}
 				</div>
 				<div class="col-12 col-lg-2 text-right">
