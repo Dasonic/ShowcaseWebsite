@@ -58,6 +58,28 @@
 					</div>
 				</div>
 
+				<div class="form-group row">
+					<label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('Captcha') }}</label>
+					<div class="col-md-6 captcha"> {{-- Align Right --}}
+						<div class="row">
+							<div class="col-12">
+								<button type="button" class="btn btn-danger mr-2" class="reload" id="reload">
+									&#x21bb;
+								</button>
+								<span>{!! captcha_img() !!}</span>
+							</div>
+							<div class="col-12 mt-2">
+								<input id="captcha" type="text" class="form-control @error('captcha') is-invalid @enderror" name="captcha" required>
+								@error('captcha')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
+							</div>
+						</div>
+					</div>
+				</div>	
+
 				<div class="form-group row mb-0">
 					<div class="col-md-6 offset-md-4">
 						<button type="submit" class="btn btn-primary">
