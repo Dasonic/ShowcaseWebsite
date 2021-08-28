@@ -9,16 +9,16 @@
 	<div class="collapse navbar-collapse row justify-content-center justify-content-lg-start" id="navbarSupportedContent">
 		{{-- Pages --}}
 		<div class="col-8 col-lg-1 pl-0 pr-0 nav-item active">
-			<a class="nav-link text-light text-center" href="/">Home<span class="sr-only">(current)</span></a>
+			<a class="nav-link text-light text-center" href="/"><i class="fas fa-home mr-2"></i>Home<span class="sr-only">(current)</span></a>
 		</div>
 		<div class="col-8 col-lg-1 pl-0 pr-0">
-			<a class="nav-link text-light text-center" href="/news">News</a>
+			<a class="nav-link text-light text-center" href="/news"><i class="fas fa-newspaper mr-2"></i>News</a>
 		</div>
 		<div class="col-8 col-lg-1 pl-0 pr-0 nav-item">
-			<a class="nav-link text-light text-center" href="/projects">Projects</a>
+			<a class="nav-link text-light text-center" href="/projects"><i class="fas fa-tasks mr-2"></i>Projects</a>
 		</div>
 		<div class="col-8 col-lg-1 pl-0 pr-0">
-			<a class="nav-link text-light text-center" href="/contact">Contact</a>
+			<a class="nav-link text-light text-center" href="/contact"><i class="fas fa-comment-alt mr-2"></i>Contact</a>
 		</div>
 		{{-- End Pages --}}
 		{{-- Search Bar --}}
@@ -35,7 +35,7 @@
 		<div class="nav-item dropdown col-8 col-lg-1 ml-lg-4">
 			<a class="nav-link dropdown-toggle text-light text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				@if (Auth::guest())
-					Profile
+				<i class="fas fa-id-card mr-2"></i>Profile
 				@else
 					{{Auth::user()->name}}
 				@endif
